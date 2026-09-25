@@ -1,0 +1,2 @@
+Cakupan,Model,RMSE,MAE,R_Square,Spearman,Kendall,IE_20%,EE_20%,Acc_20%,IE_40%,EE_40%,Acc_40%,IE_60%,EE_60%,Acc_60%,AUC_ROC_20%,AUC_ROC_40%,AUC_ROC_60%
+Provinsi Jawa Timur,1 XGBoost Global,0.4004,0.3111,0.5396,0.7035,0.5615,43.16,43.16,82.75,30.09,30.09,75.96,18.57,18.57,77.74,0.8528,0.8372,0.856

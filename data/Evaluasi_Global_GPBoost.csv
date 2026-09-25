@@ -1,0 +1,2 @@
+Cakupan,Model,RMSE,MAE,R_Square,Spearman,Kendall,IE_20%,EE_20%,Acc_20%,IE_40%,EE_40%,Acc_40%,IE_60%,EE_60%,Acc_60%,AUC_ROC_20%,AUC_ROC_40%,AUC_ROC_60%
+Provinsi Jawa Timur,GPBoost (Hierarki Blok Sensus/Klaster + Tuning CV),0.3922,0.3043,0.5581,0.7199,0.5765,41.65,41.65,83.36,28.9,28.9,76.91,18.36,18.36,77.99,0.8652,0.8466,0.8607
