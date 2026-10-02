@@ -359,7 +359,7 @@ with st.sidebar:
     st.markdown("**SUMBER DATA**")
     st.caption("Susenas–Podes 2025")
     st.markdown("**CAKUPAN**")
-    st.caption("38 kabupaten/kota di Jawa Timur")
+    st.caption("Provinsi Jawa Timur")
 
 page = st.session_state.page
 
@@ -425,7 +425,7 @@ def render_footer():
                 </div>
                 <div class="footer-col right">
                     <div class="footer-title">Politeknik Statistika STIS</div>
-                    <div class="footer-sub">Susenas–Podes 2025 · 38 Kabupaten/Kota di Jawa Timur</div>
+                    <div class="footer-sub">Susenas–Podes 2025 · Provinsi Jawa Timur</div>
                 </div>
             </div>
             <a class="footer-copyright" href="mailto:anggimaryaputriarivia@gmail.com" target="_blank" rel="noopener noreferrer">
@@ -438,7 +438,9 @@ def render_footer():
 # ---------- Pages ----------
 
 if page == "Beranda":
-    hero_data = hero_illustration_svg()
+    hero_data, _ = find_asset("eastjava", "east java", "jawatimur", "jawa timur", "herojatim", "hero jatim", "hero")
+    if not hero_data:
+        hero_data = hero_illustration_svg()
     bg = f"linear-gradient(90deg,rgba(246,246,229,.97) 0%,rgba(246,246,229,.9) 42%,rgba(246,246,229,.22) 100%),url('{hero_data}')"
     st.markdown(
         f'''<div class="hero" style="background-image:{bg}">
@@ -452,7 +454,7 @@ if page == "Beranda":
     a, b, c, d = st.columns(4)
     with a: metric_card("⌂", "Rumah Tangga", "31.481", "responden")
     with b: metric_card("◈", "Kabupaten/Kota", "38", "wilayah")
-    with c: metric_card("▤", "Variabel Prediktor", "58", "variabel")
+    with c: metric_card("▤", "Variabel Prediktor", "58", "variabel + kode kab/kota")
     with d: metric_card("▥", "Data Uji", "6.297", "rumah tangga")
 
     st.markdown('<div class="section-title">Mengenal Penelitian</div>', unsafe_allow_html=True)
@@ -460,12 +462,12 @@ if page == "Beranda":
     with a:
         card(
             "Mengapa Penelitian Ini Penting?",
-            "Proxy Means Test (PMT) memperkirakan kesejahteraan keluarga dari karakteristik rumah tangga yang dapat diamati. Penelitian ini mengembangkan GPBoost dan membandingkannya dengan XGBoost Global serta 38 model XGBoost Lokal.",
-            icon="✎",
+            "<b>Identifikasi masalah.</b> PMT konvensional mengasumsikan hubungan linear antara karakteristik rumah tangga dan pengeluaran, sehingga sulit menangkap interaksi yang kompleks dan perbedaan karakteristik antarwilayah. Machine learning menawarkan penargetan yang lebih akurat dan efisien, tetapi penerapannya sering mengabaikan struktur data sehingga tidak menangkap hubungan antarunit di dalam satu wilayah. Hal ini penting di Jawa Timur yang variasi antarkabupaten/kota serta perbedaan perkotaan dan perdesaannya tinggi, sementara algoritma hibrida seperti GPBoost yang menyesuaikan struktur hierarki masih jarang diterapkan di Indonesia.",
+            fixed_height=320,
         )
     with b:
         st.markdown(
-            '''<div class="card">
+            '''<div class="card" style="min-height:320px;box-sizing:border-box;justify-content:center">
                 <h3>Alur Penelitian</h3>
                 <div class="step-row">
                     <div class="step"><div class="step-circle">1</div><div class="step-title">Data</div><div class="step-caption">Susenas–Podes 2025</div></div>
@@ -482,16 +484,16 @@ if page == "Beranda":
 
     st.markdown('<div class="section-title">Eksplorasi Hasil Penelitian</div>', unsafe_allow_html=True)
     items = [
-        ("01", "▥", "Perbandingan Model", "Bandingkan ketepatan prediksi dan pemeringkatan antar model."),
-        ("02", "◎", "Evaluasi Penargetan", "Pelajari hasil identifikasi kelompok 20% dan 40% keluarga."),
-        ("03", "✎", "Interpretasi Model", "Telusuri variabel penting melalui Gain, SHAP, dan efek acak wilayah."),
-        ("04", "◆", "Kabupaten/Kota", "Jelajahi evaluasi 38 model XGBoost Lokal di tiap wilayah."),
-        ("05", "▤", "Ringkasan Hasil", "Lihat seluruh metrik utama dalam satu tampilan komprehensif."),
+        ("01", "Perbandingan Model", "Bandingkan ketepatan prediksi dan pemeringkatan antar model."),
+        ("02", "Evaluasi Penargetan", "Pelajari hasil identifikasi kelompok 20% dan 40% keluarga."),
+        ("03", "Interpretasi Model", "Telusuri variabel penting melalui Gain, SHAP, dan efek acak wilayah."),
+        ("04", "Kabupaten/Kota", "Jelajahi evaluasi 38 model XGBoost Lokal di tiap wilayah."),
+        ("05", "Ringkasan Hasil", "Lihat seluruh metrik utama dalam satu tampilan komprehensif."),
     ]
     cols = st.columns(5, gap="small")
-    for col, (badge, icon, title, body) in zip(cols, items):
+    for col, (badge, title, body) in zip(cols, items):
         with col:
-            card(title, body, badge=badge, icon=icon, fixed_height=400)
+            card(title, body, badge=badge, fixed_height=400)
             if st.button("Lihat detail →", key="go_"+title, use_container_width=True):
                 st.session_state.page = title; st.rerun()
 
@@ -528,23 +530,31 @@ elif page == "Evaluasi Penargetan":
     plot_bar(ev, col, f"{label} · Cakupan {coverage}")
     cols = ["Model_Tampil"] + [f"{p}_{coverage}" for p in choices.values()]
     show_table(ev[cols].round(4))
-    st.markdown('<div class="story-note"><b>Interpretasi:</b> Inclusion Error menggambarkan nonsasaran yang terpilih, sedangkan Exclusion Error menggambarkan sasaran yang terlewat. Nilai pada grafik mengikuti satuan dalam CSV hasil evaluasi.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="story-note"><b>Interpretasi:</b> Inclusion Error menggambarkan nonsasaran yang terpilih, sedangkan Exclusion Error menggambarkan sasaran yang terlewat.</div>', unsafe_allow_html=True)
+    if coverage == "20%":
+        st.markdown('<div class="story-note"><b>Interpretasi cakupan 20%:</b> Inclusion Error dan Exclusion Error bernilai sama pada setiap model, karena jumlah rumah tangga yang terpilih setara dengan jumlah sasaran. GPBoost dan XGBoost Global berkinerja hampir setara: kesalahan penargetan 41,65% untuk GPBoost dan 41,18% untuk XGBoost Global, dengan akurasi 83,36% dan 83,55%, sehingga XGBoost Global sedikit lebih rendah kesalahannya. Namun, GPBoost memiliki AUC-ROC yang lebih tinggi (0,8652 dibanding 0,8561), yang menunjukkan kemampuan memisahkan rumah tangga sasaran dan nonsasaran secara keseluruhan yang sedikit lebih baik. XGBoost Lokal memiliki kesalahan terbesar (45,39%), akurasi 81,86%, dan AUC-ROC 0,8359, sehingga model terpisah per kabupaten/kota tidak menunjukkan keunggulan dibanding model global dalam perbandingan ini. Secara umum, selisih antarmodel kecil dan ketiganya relatif sebanding, dengan GPBoost unggul pada kemampuan membedakan kelompok sasaran.</div>', unsafe_allow_html=True)
+    else:
+        st.markdown('<div class="story-note"><b>Interpretasi cakupan 40%:</b> GPBoost menghasilkan kesalahan penargetan 28,90% dengan akurasi 76,91%, sedangkan XGBoost Global 29,17% dengan akurasi 76,69%. GPBoost relatif lebih rendah kesalahannya serta lebih tinggi akurasi dan AUC-ROC-nya, meskipun selisihnya kecil. Dibanding cakupan 20%, kesalahan penargetan pada cakupan 40% lebih rendah untuk kedua model. Secara umum, kedua model memiliki kinerja penargetan yang hampir sama, dengan GPBoost sedikit lebih unggul pada cakupan ini. Hasil XGBoost Lokal dapat dilihat pada tabel di atas.</div>', unsafe_allow_html=True)
 
 elif page == "Interpretasi Model":
     heading("Interpretasi Model", "Mengidentifikasi variabel penting menurut Gain dan mean absolute SHAP.")
     model = st.radio("Pilih model", ["GPBoost", "XGBoost"], horizontal=True)
-    fi = read_csv(f"FeatureImportance_{model}.csv").nlargest(12, "Persentase_Gain").sort_values("Persentase_Gain")
-    shap = read_csv(f"SHAP_{model}.csv").nlargest(12, "Mean_Abs_SHAP").sort_values("Mean_Abs_SHAP")
+    fi = read_csv(f"FeatureImportance_{model}.csv").sort_values("Persentase_Gain")
+    shap = read_csv(f"SHAP_{model}.csv").sort_values("Mean_Abs_SHAP")
+    tinggi_gain = max(580, 26 * len(fi) + 120)
+    tinggi_shap = max(580, 26 * len(shap) + 120)
     a, b = st.columns(2)
     with a:
-        fig = px.bar(fi, x="Persentase_Gain", y="Variabel", orientation="h", title="12 variabel utama · Gain", color_discrete_sequence=[GREEN])
-        fig.update_layout(template="plotly_white", paper_bgcolor="#FFFDF6", plot_bgcolor="#FFFDF6", height=580, font=dict(size=16), title_font=dict(size=18), yaxis_title="", xaxis_title="Gain (%)")
+        fig = px.bar(fi, x="Persentase_Gain", y="Variabel", orientation="h", title=f"Seluruh variabel ({len(fi)}) · Gain", color_discrete_sequence=[GREEN])
+        fig.update_layout(template="plotly_white", paper_bgcolor="#FFFDF6", plot_bgcolor="#FFFDF6", height=tinggi_gain, font=dict(size=16), title_font=dict(size=18), yaxis_title="", xaxis_title="Gain (%)")
         style_axes(fig)
+        fig.update_yaxes(dtick=1)
         st.plotly_chart(fig, use_container_width=True)
     with b:
-        fig = px.bar(shap, x="Mean_Abs_SHAP", y="Variabel", orientation="h", title="12 variabel utama · SHAP", color_discrete_sequence=[GOLD])
-        fig.update_layout(template="plotly_white", paper_bgcolor="#FFFDF6", plot_bgcolor="#FFFDF6", height=580, font=dict(size=16), title_font=dict(size=18), yaxis_title="", xaxis_title="Mean absolute SHAP")
+        fig = px.bar(shap, x="Mean_Abs_SHAP", y="Variabel", orientation="h", title=f"Seluruh variabel ({len(shap)}) · SHAP", color_discrete_sequence=[GOLD])
+        fig.update_layout(template="plotly_white", paper_bgcolor="#FFFDF6", plot_bgcolor="#FFFDF6", height=tinggi_shap, font=dict(size=16), title_font=dict(size=18), yaxis_title="", xaxis_title="Mean absolute SHAP")
         style_axes(fig)
+        fig.update_yaxes(dtick=1)
         st.plotly_chart(fig, use_container_width=True)
     st.caption("Gain dan mean absolute SHAP mengukur kepentingan prediktor, bukan hubungan sebab-akibat. CSV ini tidak berisi nilai SHAP individual untuk beeswarm.")
     if model == "GPBoost":
@@ -558,6 +568,7 @@ elif page == "Interpretasi Model":
         with b: metric_card("◆", "Varians kab/kota", f"{district:.4f}", "")
         with c: metric_card("◎", "ICC", f"{icc:.2f}%", "")
         st.markdown(f'<div class="story-note">ICC sebesar <b>{icc:.2f}%</b> adalah proporsi variasi residual pada skala logaritma yang berkaitan dengan perbedaan antarkabupaten/kota setelah prediktor model diperhitungkan.</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="story-note"><b>Interpretasi random effects:</b> GPBoost memakai <code>kode_kab</code> (kombinasi provinsi dan kabupaten/kota) sebagai identitas kelompok wilayah, sehingga rumah tangga dalam kabupaten/kota yang sama berbagi komponen efek acak yang sama. Varians residual sebesar {residual:.4f} dan varians efek acak kabupaten/kota sebesar {district:.4f} menghasilkan ICC {icc:.2f}%. Varians efek acak kabupaten/kota memang lebih kecil dibanding pemeriksaan awal, tetapi varians residual turun lebih besar, sehingga proporsi efek acak terhadap total varians meningkat. Selisih ICC ini mencerminkan dua tahap pemodelan, yaitu sebelum dan sesudah prediktor dimasukkan. Artinya, variasi antarkabupaten/kota diperhitungkan secara eksplisit: model tidak hanya memanfaatkan karakteristik rumah tangga dan variabel wilayah sebagai prediktor, tetapi juga struktur pengelompokan rumah tangga menurut wilayah.</div>', unsafe_allow_html=True)
 
 elif page == "Kabupaten/Kota":
     heading("Analisis 38 Kabupaten/Kota", "Evaluasi model XGBoost Lokal dengan nama wilayah")
@@ -581,6 +592,10 @@ else:
     ev = get_eval()
     fields = ["Model_Tampil", "RMSE", "MAE", "R_Square", "Spearman", "Kendall", "IE_20%", "EE_20%", "Acc_20%", "AUC_ROC_20%", "IE_40%", "EE_40%", "Acc_40%", "AUC_ROC_40%"]
     show_table(ev[fields].round(4))
-    st.markdown('<div class="story-note">Perbandingan angka di atas bersifat deskriptif. Evaluasi wilayah lokal dan model global perlu dibaca sesuai rancangan data uji masing-masing.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="story-note"><b>Kesimpulan.</b><br>'
+                '<b>(a) Kinerja prediksi.</b> Model PMT berbasis GPBoost dikembangkan dari 31.481 rumah tangga dengan 58 variabel prediktor numerik dan <code>kode_kab</code> (38 kabupaten/kota) sebagai variabel pengelompokan efek acak. Pada data uji, GPBoost mencatat RMSE 0,3922, MAE 0,3043, dan R² 0,5581, lebih baik dibanding XGBoost (RMSE 0,3978, MAE 0,3077, R² 0,5454) yang memakai <code>kode_kab</code> sebagai prediktor kategorik.<br>'
+                '<b>(b) Pemeringkatan dan penargetan.</b> GPBoost sedikit lebih tinggi pada korelasi Spearman (0,7199) dan Kendall (0,5765) dibanding XGBoost (0,7115 dan 0,5694). Pada cakupan 20%, kesalahan penargetan kedua model hampir sama: XGBoost sedikit lebih rendah (41,18% dibanding 41,65%), tetapi GPBoost unggul pada AUC-ROC (0,8652 dibanding 0,8561). Pada cakupan 40%, GPBoost memiliki kesalahan yang relatif lebih rendah (28,90% dibanding 29,17%) dengan akurasi dan AUC-ROC yang relatif lebih tinggi.<br>'
+                '<b>(c) Interpretasi.</b> Prediksi kesejahteraan dipengaruhi berbagai karakteristik rumah tangga, kondisi wilayah, dan efek acak kabupaten/kota. Luas lantai per kapita dan kepemilikan mobil berkontribusi penting, sedangkan efek acak menangkap variasi antarkabupaten/kota yang belum dijelaskan prediktor.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="story-note"><b>Saran untuk penelitian selanjutnya.</b> (1) Menerapkan efek acak pada hierarki yang lebih rinci, seperti desa atau blok sensus, serta menambah informasi geografis seperti koordinat rumah tangga melalui <code>gp_coords</code>. (2) Memperluas evaluasi penargetan dengan implikasi kebijakan dari kesalahan inklusi dan eksklusi, serta variasi cakupan sasaran. (3) Memperdalam interpretasi melalui kontribusi variabel prediktor dan distribusi efek acak kabupaten/kota. (4) Menyempurnakan dashboard interaktif sebagai pendukung analisis penargetan program bantuan sosial.</div>', unsafe_allow_html=True)
 
 render_footer()

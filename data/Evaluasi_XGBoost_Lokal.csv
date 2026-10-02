@@ -1,2 +1,2 @@
-Cakupan,Model,RMSE,MAE,R_Square,Spearman,Kendall,IE_20%,EE_20%,Acc_20%,IE_40%,EE_40%,Acc_40%,IE_60%,EE_60%,Acc_60%,AUC_ROC_20%,AUC_ROC_40%,AUC_ROC_60%
-Provinsi Jawa Timur (Agregat Lokal),38 XGBoost Lokal (Total Jatim),0.4227,0.3257,0.4869,0.6791,0.5372,45.07,45.07,81.99,30.8,30.8,75.39,18.84,18.84,77.42,0.836,0.8261,0.8476
+Cakupan,Model,RMSE,MAE,R_Square,Spearman,Kendall,IE_20%,EE_20%,Acc_20%,IE_40%,EE_40%,Acc_40%,AUC_ROC_20%,AUC_ROC_40%
+Provinsi Jawa Timur (Agregat Lokal),38 XGBoost Lokal (Total Jatim),0.4227,0.3258,0.4868,0.6776,0.5359,45.39,45.39,81.86,31.0,31.0,75.23,0.8359,0.826
