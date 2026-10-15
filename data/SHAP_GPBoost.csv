@@ -1,59 +1,58 @@
-Variabel,Mean_Abs_SHAP
-h_luas_lantai_kapita,0.13533149571847283
-h_aset_mobil,0.09084147938080396
-h_proporsi_dewasa,0.05176364735542202
-h_krt_status_kawin,0.045942999083221935
-h_aset_emas,0.044952615393009945
-h_perkotaan,0.04249503898126047
-h_proporsi_melek_huruf,0.040633263162923414
-h_aset_tv_datar,0.038955345982130456
-h_krt_umur,0.037194108249285644
-h_rata_rata_umur_art,0.03601481150348016
-h_aset_kulkas,0.033928585285955916
-h_aset_komputer,0.032668713638019695
-h_krt_tamat_sma,0.03140938069879711
-p_pengguna_listrik_pln,0.029250092387800197
-h_aset_ac,0.02890950230247899
-h_aset_sepeda_motor,0.024482925823607404
-h_krt_jenjang_pendidikan,0.015963092087183998
-p_latitude,0.015918791994876252
-h_penerima_pkh,0.0155232848564871
-p_pendidikan_kades,0.014251246173696091
-p_longitude,0.01250996060415046
-p_tanpa_angkutan_umum,0.011179388057232228
-h_krt_perempuan,0.009215375602257037
-h_aset_pemanas_air,0.008804940992487832
-p_jarak_ke_surabaya,0.008667431798359309
-h_bb_masak_bersih,0.007647056814638039
-h_proporsi_balita,0.006523304057590788
-p_bupati_jauh,0.006264109887732271
-p_perdesaan,0.005665403061700223
-p_sumber_pertanian,0.005443535243526767
-p_sumber_jasa,0.005175664052463745
-h_kloset_layak,0.0040822488404328875
-p_akses_bank_ada,0.004075850118024132
-p_camat_jauh,0.0036706321198699877
-p_blank_spot,0.0035889150403211113
-p_tepi_hutan,0.003304259071437368
-h_lantai_layak,0.003258834445711287
-h_rumah_bebas_sewa,0.0024098142681138724
-h_rumah_kontrak_sewa,0.0019955687899313925
-p_sumber_industri,0.001836757446004991
-p_ada_fasilitas_pendidikan,0.0016041090620788603
-p_gelap_gulita,0.001497430416481137
-h_pembuangan_layak,0.001426380339100007
-h_rumah_milik_sendiri,0.0011416158916904631
-p_dalam_kawasan_hutan,0.0010013219791061095
-h_listrik_rentan,0.0009946905895068026
-h_sanitasi_layak,0.0009787564928423617
-p_sentra_ekonomi_ada,0.0007457588610213749
-h_aset_perahu,0.000726389007134494
-h_aset_telepon,0.0007234477592599098
-h_listrik_resmi,0.0006368418736145471
-h_air_minum_layak,0.0006237199959934302
-h_dinding_layak,0.0005197345488703442
-h_rumah_dinas,0.00026737308456997993
-h_atap_layak,1.9360810506605805e-05
-h_log_luas_lantai_kapita,0.0
-h_penerima_permodalan,0.0
-p_ada_faskes_lengkap,0.0
+﻿Variabel,Mean_Abs_SHAP,Kode Variabel,Deskripsi
+jumlah_art,0.13489848154575884,jumlah_art,jumlah_art
+luas_lantai_per_kapita,0.09677568564608431,luas_lantai_per_kapita,luas_lantai_per_kapita
+R1801K,0.08554152838206569,R1801K,Kepemilikan mobil
+R1610A,0.05826746002015226,R1610A,Sumber utama air minum
+R1801G,0.040938413479634575,R1801G,Kepemilikan emas
+R1801L,0.03684282043179905,R1801L,Kepemilikan TV
+R1801F,0.03620228503848911,R1801F,Kepemilikan komputer/laptop
+R615,0.03620218957589872,R615,Ijazah tertinggi
+R1801B,0.036039136517381595,R1801B,Kepemilikan kulkas
+rasio_ketergantungan,0.03557167800449292,rasio_ketergantungan,rasio_ketergantungan
+R1801H,0.03332518518586983,R1801H,Kepemilikan sepeda motor
+R1801C,0.02701619202883417,R1801C,Kepemilikan AC
+jumlah_lansia,0.02657288341715935,jumlah_lansia,jumlah_lansia
+R1608,0.02648163099235992,R1608,Bahan bangunan utama lantai
+podes_jarak_kabupaten,0.021805291150673246,podes_jarak_kabupaten,podes_jarak_kabupaten
+podes_jarak_bank,0.017728626868092203,podes_jarak_bank,podes_jarak_bank
+podes_jarak_pasar,0.01574164436526088,podes_jarak_pasar,podes_jarak_pasar
+podes_jarak_kesehatan,0.015301821230863948,podes_jarak_kesehatan,podes_jarak_kesehatan
+podes_usia_kades,0.014725036649669353,podes_usia_kades,podes_usia_kades
+p_latitude,0.013874430034714362,p_latitude,p_latitude
+p_longitude,0.012925600712315959,p_longitude,p_longitude
+R105,0.012643103616392001,R105,Klasifikasi perkotaan/perdesaan
+R405,0.011559515186330253,R405,Jenis kelamin
+podes_pendidikan_kades,0.011151974641267645,podes_pendidikan_kades,podes_pendidikan_kades
+R1617,0.010551721251103712,R1617,Jenis bahan bakar utama untuk memasak
+podes_jarak_kecamatan,0.010520323942088624,podes_jarak_kecamatan,podes_jarak_kecamatan
+podes_area_perdesaan,0.009389077201492277,podes_area_perdesaan,podes_area_perdesaan
+p_jarak_ke_surabaya,0.008768810295916635,p_jarak_ke_surabaya,p_jarak_ke_surabaya
+R1801D,0.007864842060251426,R1801D,Kepemilikan pemanas air
+podes_hotel,0.00766370026393546,podes_hotel,podes_hotel
+R1607,0.007648118655971622,R1607,Bahan bangunan utama dinding
+podes_ruko,0.007184286015539218,podes_ruko,podes_ruko
+podes_sma,0.006844109414254795,podes_sma,podes_sma
+R404,0.006541098890313535,R404,Status kawin
+jumlah_balita,0.003980120129145539,jumlah_balita,jumlah_balita
+R1609B,0.0033456355717158114,R1609B,Jenis kloset
+podes_smp,0.0031087686544623606,podes_smp,podes_smp
+R608,0.0030856672860080565,R608,Kemampuan membaca dan menulis huruf Latin
+R1602,0.002952350181015219,R1602,Status kepemilikan rumah
+R1606,0.0029161968179513666,R1606,Bahan bangunan utama atap
+podes_lembaga_kredit,0.002809790990492007,podes_lembaga_kredit,podes_lembaga_kredit
+podes_puskesmas_pustu,0.002740419118492665,podes_puskesmas_pustu,podes_puskesmas_pustu
+podes_dokter,0.0027297661443943474,podes_dokter,podes_dokter
+podes_koperasi,0.002669833506923026,podes_koperasi,podes_koperasi
+podes_bidan,0.0025764196961565572,podes_bidan,podes_bidan
+R1609C,0.002575909143926343,R1609C,Tempat pembuangan akhir tinja
+podes_pasar_semi_permanen,0.0023898382976957097,podes_pasar_semi_permanen,podes_pasar_semi_permanen
+R1616,0.0021185937099847773,R1616,Sumber utama penerangan rumah
+podes_jenis_kelamin_kades,0.0020531543831620027,podes_jenis_kelamin_kades,podes_jenis_kelamin_kades
+podes_akses_bank,0.0019187879635250774,podes_akses_bank,podes_akses_bank
+R1609A,0.001692136651951869,R1609A,Kepemilikan tempat BAB
+podes_polindes,0.0015669783704675287,podes_polindes,podes_polindes
+R1801I,0.0008550762939714442,R1801I,Kepemilikan perahu
+podes_jalan_aspal,0.0005813218817713271,podes_jalan_aspal,podes_jalan_aspal
+R1801E,0.0005582381454174117,R1801E,Kepemilikan telepon rumah
+podes_posyandu,0.00040962405196010265,podes_posyandu,podes_posyandu
+podes_akses_mobil_roda4,0.00015218185257999972,podes_akses_mobil_roda4,podes_akses_mobil_roda4

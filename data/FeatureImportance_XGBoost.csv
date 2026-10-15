@@ -1,60 +1,59 @@
-Variabel,Gain,Persentase_Gain
-h_aset_mobil,0.2531551,25.315514
-h_aset_ac,0.09702533,9.702534
-h_aset_emas,0.04276056,4.2760563
-h_aset_komputer,0.033638775,3.363878
-h_aset_tv_datar,0.03170454,3.1704545
-h_krt_tamat_sma,0.025415752,2.5415754
-h_luas_lantai_kapita,0.025378663,2.5378666
-p_gelap_gulita,0.02045346,2.0453463
-h_proporsi_dewasa,0.020227619,2.022762
-h_proporsi_melek_huruf,0.019988615,1.9988617
-h_aset_pemanas_air,0.017881839,1.788184
-h_aset_kulkas,0.017669907,1.7669909
-h_krt_status_kawin,0.016367832,1.6367834
-kode_kab,0.0141632715,1.4163272
-h_aset_sepeda_motor,0.013113086,1.3113087
-h_penerima_pkh,0.012671193,1.2671194
-p_latitude,0.012576697,1.2576698
-h_lantai_layak,0.012457967,1.2457968
-p_dalam_kawasan_hutan,0.0119286515,1.1928653
-h_aset_telepon,0.011596632,1.1596633
-p_jarak_ke_surabaya,0.010959457,1.0959457
-p_longitude,0.010908033,1.0908034
-h_kloset_layak,0.010787631,1.0787632
-h_proporsi_balita,0.010402243,1.0402243
-h_krt_jenjang_pendidikan,0.010279228,1.0279229
-h_krt_perempuan,0.009710704,0.97107047
-p_pengguna_listrik_pln,0.008941546,0.8941547
-p_sumber_jasa,0.008829998,0.8829999
-h_log_luas_lantai_kapita,0.008598362,0.8598363
-h_aset_perahu,0.008596606,0.8596606
-p_ada_fasilitas_pendidikan,0.008373568,0.83735687
-h_perkotaan,0.0082969675,0.82969683
-h_rata_rata_umur_art,0.008154664,0.8154665
-p_perdesaan,0.007966215,0.79662156
-h_rumah_dinas,0.007966077,0.7966078
-p_camat_jauh,0.007688987,0.7688987
-h_bb_masak_bersih,0.007684858,0.76848584
-p_tanpa_angkutan_umum,0.007633218,0.7633219
-p_sumber_pertanian,0.007564547,0.75645477
-p_pendidikan_kades,0.0075359666,0.7535967
-h_rumah_kontrak_sewa,0.007321926,0.73219264
-p_sumber_industri,0.007233005,0.7233006
-p_blank_spot,0.0071870433,0.7187044
-h_penerima_permodalan,0.0071787704,0.7178771
-p_akses_bank_ada,0.0070908973,0.70908976
-p_tepi_hutan,0.007021336,0.70213366
-p_bupati_jauh,0.006664332,0.6664333
-h_krt_umur,0.006641537,0.66415375
-h_air_minum_layak,0.006283575,0.6283576
-p_ada_faskes_lengkap,0.0062050107,0.6205011
-p_sentra_ekonomi_ada,0.005612656,0.56126565
-h_sanitasi_layak,0.005470696,0.5470696
-h_pembuangan_layak,0.005250752,0.52507526
-h_listrik_resmi,0.0051999255,0.5199926
-h_rumah_bebas_sewa,0.0050217523,0.5021753
-h_listrik_rentan,0.004607958,0.46079582
-h_dinding_layak,0.0045887926,0.4588793
-h_atap_layak,0.004199952,0.41999525
-h_rumah_milik_sendiri,0.004165738,0.41657382
+Variabel,Gain,Persentase_Gain,Deskripsi
+R1801K,0.20762983,20.762985,Kepemilikan mobil
+R1801C,0.12104754,12.104754,Kepemilikan AC
+jumlah_art,0.06310694,6.3106947,jumlah_art
+R1801G,0.04746199,4.7461996,Kepemilikan emas
+R1801F,0.04062296,4.0622964,Kepemilikan komputer/laptop
+R1801L,0.035221167,3.5221171,Kepemilikan TV
+R1801H,0.02887844,2.887844,Kepemilikan sepeda motor
+R1801B,0.026474701,2.6474702,Kepemilikan kulkas
+rasio_ketergantungan,0.018460477,1.8460479,rasio_ketergantungan
+luas_lantai_per_kapita,0.018213732,1.8213735,luas_lantai_per_kapita
+R1610A,0.018042818,1.804282,Sumber utama air minum
+kode_kab,0.016458746,1.6458747,kode_kab
+R1801D,0.01521911,1.5219111,Kepemilikan pemanas air
+R615,0.015106845,1.5106846,Ijazah tertinggi
+podes_posyandu,0.014157422,1.4157423,podes_posyandu
+R608,0.013818174,1.3818175,Kemampuan membaca dan menulis huruf Latin
+R1617,0.01270736,1.2707361,Jenis bahan bakar utama untuk memasak
+R1608,0.01196226,1.1962261,Bahan bangunan utama lantai
+R1801E,0.011176555,1.1176556,Kepemilikan telepon rumah
+p_latitude,0.009941572,0.9941573,p_latitude
+p_jarak_ke_surabaya,0.009226512,0.9226513,p_jarak_ke_surabaya
+podes_jalan_aspal,0.009077579,0.907758,podes_jalan_aspal
+podes_hotel,0.008847445,0.88474464,podes_hotel
+podes_jarak_bank,0.008823997,0.8823998,podes_jarak_bank
+jumlah_lansia,0.00881314,0.8813141,jumlah_lansia
+R405,0.0087227225,0.8722724,Jenis kelamin
+podes_jarak_kabupaten,0.008274839,0.827484,podes_jarak_kabupaten
+p_longitude,0.00824644,0.82464415,p_longitude
+podes_pendidikan_kades,0.008070033,0.8070034,podes_pendidikan_kades
+podes_dokter,0.007954215,0.79542154,podes_dokter
+podes_akses_mobil_roda4,0.0073876646,0.7387665,podes_akses_mobil_roda4
+podes_usia_kades,0.0073706754,0.7370676,podes_usia_kades
+podes_area_perdesaan,0.0073379,0.73379004,podes_area_perdesaan
+podes_jarak_kecamatan,0.00717199,0.717199,podes_jarak_kecamatan
+R1801I,0.007169235,0.71692353,Kepemilikan perahu
+podes_jarak_pasar,0.0069335965,0.6933597,podes_jarak_pasar
+podes_lembaga_kredit,0.0069264104,0.6926411,podes_lembaga_kredit
+podes_bidan,0.006860683,0.68606836,podes_bidan
+podes_jenis_kelamin_kades,0.006732955,0.67329556,podes_jenis_kelamin_kades
+podes_koperasi,0.0066779326,0.6677933,podes_koperasi
+podes_sma,0.006623406,0.66234064,podes_sma
+podes_jarak_kesehatan,0.006603217,0.6603218,podes_jarak_kesehatan
+jumlah_balita,0.006558374,0.6558375,jumlah_balita
+podes_smp,0.006239664,0.62396646,podes_smp
+podes_polindes,0.006179062,0.6179063,podes_polindes
+podes_ruko,0.006116316,0.6116317,podes_ruko
+podes_pasar_semi_permanen,0.005966177,0.59661776,podes_pasar_semi_permanen
+podes_puskesmas_pustu,0.005774932,0.57749325,podes_puskesmas_pustu
+R1607,0.005741433,0.57414335,Bahan bangunan utama dinding
+podes_akses_bank,0.0054604523,0.5460453,podes_akses_bank
+R1609C,0.0054415166,0.5441517,Tempat pembuangan akhir tinja
+R1609A,0.005198291,0.51982915,Kepemilikan tempat BAB
+R404,0.0050607435,0.5060744,Status kawin
+R1609B,0.0046513854,0.46513858,Jenis kloset
+R1616,0.0042782463,0.42782468,Sumber utama penerangan rumah
+R1606,0.004266583,0.42665833,Bahan bangunan utama atap
+R105,0.0040023252,0.40023258,Klasifikasi perkotaan/perdesaan
+R1602,0.0035032826,0.35032827,Status kepemilikan rumah
